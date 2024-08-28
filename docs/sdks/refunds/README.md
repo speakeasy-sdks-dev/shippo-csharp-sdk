@@ -20,8 +20,8 @@ Creates a new refund object.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -44,15 +44,16 @@ var res = await sdk.Refunds.CreateAsync(
 | `RefundRequestBody`                                               | [RefundRequestBody](../../Models/Components/RefundRequestBody.md) | :heavy_check_mark:                                                | Refund details                                                    |                                                                   |
 | `ShippoApiVersion`                                                | *string*                                                          | :heavy_minus_sign:                                                | String used to pick a non-default API version to use              | 2018-02-08                                                        |
 
-
 ### Response
 
 **[Refund](../../Models/Components/Refund.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## List
 
@@ -62,8 +63,8 @@ Returns a list all refund objects.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -80,15 +81,16 @@ var res = await sdk.Refunds.ListAsync(shippoApiVersion: "2018-02-08");
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[RefundPaginatedList](../../Models/Components/RefundPaginatedList.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Get
 
@@ -98,8 +100,8 @@ Returns an existing rate using a rate object ID.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -119,10 +121,10 @@ var res = await sdk.Refunds.GetAsync(
 | `RefundId`                                           | *string*                                             | :heavy_check_mark:                                   | Object ID of the refund to update                    |                                                      |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[Refund](../../Models/Components/Refund.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |

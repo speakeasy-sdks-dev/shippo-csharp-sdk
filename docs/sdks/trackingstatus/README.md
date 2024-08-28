@@ -28,8 +28,8 @@ Registers a webhook that will send HTTP notifications to you when the status of 
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -53,15 +53,16 @@ var res = await sdk.TrackingStatus.CreateAsync(
 | `TracksRequest`                                           | [TracksRequest](../../Models/Components/TracksRequest.md) | :heavy_check_mark:                                        | N/A                                                       |                                                           |
 | `ShippoApiVersion`                                        | *string*                                                  | :heavy_minus_sign:                                        | String used to pick a non-default API version to use      | 2018-02-08                                                |
 
-
 ### Response
 
 **[Track](../../Models/Components/Track.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Get
 
@@ -71,8 +72,8 @@ Returns the tracking status of a shipment using a carrier name and a tracking nu
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -94,10 +95,10 @@ var res = await sdk.TrackingStatus.GetAsync(
 | `Carrier`                                            | *string*                                             | :heavy_check_mark:                                   | Name of the carrier                                  |                                                      |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[Track](../../Models/Components/Track.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |

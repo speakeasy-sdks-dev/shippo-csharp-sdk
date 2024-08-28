@@ -22,8 +22,8 @@ Returns a list of service group objects.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -40,15 +40,16 @@ var res = await sdk.ServiceGroups.ListAsync(shippoApiVersion: "2018-02-08");
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[List<ServiceGroup>](../../Models/.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Create
 
@@ -58,8 +59,8 @@ Creates a new service group.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 using System.Collections.Generic;
 
 var sdk = new ShippoSDK(
@@ -95,15 +96,16 @@ var res = await sdk.ServiceGroups.CreateAsync(
 | `ServiceGroupCreateRequest`                                                       | [ServiceGroupCreateRequest](../../Models/Components/ServiceGroupCreateRequest.md) | :heavy_check_mark:                                                                | N/A                                                                               |                                                                                   |
 | `ShippoApiVersion`                                                                | *string*                                                                          | :heavy_minus_sign:                                                                | String used to pick a non-default API version to use                              | 2018-02-08                                                                        |
 
-
 ### Response
 
 **[ServiceGroup](../../Models/Components/ServiceGroup.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Update
 
@@ -113,8 +115,8 @@ Updates an existing service group object. <br>The object_id cannot be updated as
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 using System.Collections.Generic;
 
 var sdk = new ShippoSDK(
@@ -152,15 +154,16 @@ var res = await sdk.ServiceGroups.UpdateAsync(
 | `ShippoApiVersion`                                                                | *string*                                                                          | :heavy_minus_sign:                                                                | String used to pick a non-default API version to use                              | 2018-02-08                                                                        |
 | `ServiceGroupUpdateRequest`                                                       | [ServiceGroupUpdateRequest](../../Models/Components/ServiceGroupUpdateRequest.md) | :heavy_minus_sign:                                                                | N/A                                                                               |                                                                                   |
 
-
 ### Response
 
 **[ServiceGroup](../../Models/Components/ServiceGroup.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Delete
 
@@ -170,8 +173,8 @@ Deletes an existing service group using an object ID.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",

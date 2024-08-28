@@ -31,9 +31,9 @@ Returns a list of all order objects.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
 using System.Collections.Generic;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -43,7 +43,7 @@ ListOrdersRequest req = new ListOrdersRequest() {
     OrderStatus = new List<OrderStatusEnum>() {
         Shippo.Models.Components.OrderStatusEnum.Paid,
     },
-    ShopApp = OrderShopAppEnum.Shippo,
+    ShopApp = Shippo.Models.Components.OrderShopAppEnum.Shippo,
 };
 
 var res = await sdk.Orders.ListAsync(req);
@@ -57,15 +57,16 @@ var res = await sdk.Orders.ListAsync(req);
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
 | `request`                                                       | [ListOrdersRequest](../../Models/Requests/ListOrdersRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
-
 ### Response
 
 **[OrderPaginatedList](../../Models/Components/OrderPaginatedList.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Create
 
@@ -75,8 +76,8 @@ Creates a new order object.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 using System.Collections.Generic;
 
 var sdk = new ShippoSDK(
@@ -88,7 +89,7 @@ var res = await sdk.Orders.CreateAsync(
     Currency = "USD",
     Notes = "This customer is a VIP",
     OrderNumber = "#1068",
-    OrderStatus = OrderStatusEnum.Paid,
+    OrderStatus = Shippo.Models.Components.OrderStatusEnum.Paid,
     PlacedAt = "2016-09-23T01:28:12Z",
     ShippingCost = "12.83",
     ShippingCostCurrency = "USD",
@@ -97,7 +98,7 @@ var res = await sdk.Orders.CreateAsync(
     TotalPrice = "24.93",
     TotalTax = "0.0",
     Weight = "0.4",
-    WeightUnit = WeightUnitEnum.Lb,
+    WeightUnit = Shippo.Models.Components.WeightUnitEnum.Lb,
     FromAddress = new AddressCreateRequest() {
         Name = "Shwan Ippotle",
         Company = "Shippo",
@@ -142,7 +143,7 @@ var res = await sdk.Orders.CreateAsync(
             TotalPrice = "12.1",
             VariantTitle = "June Edition",
             Weight = "0.4",
-            WeightUnit = WeightUnitEnum.Lb,
+            WeightUnit = Shippo.Models.Components.WeightUnitEnum.Lb,
         },
     },
 },
@@ -158,15 +159,16 @@ var res = await sdk.Orders.CreateAsync(
 | `OrderCreateRequest`                                                | [OrderCreateRequest](../../Models/Components/OrderCreateRequest.md) | :heavy_check_mark:                                                  | Order details.                                                      |                                                                     |
 | `ShippoApiVersion`                                                  | *string*                                                            | :heavy_minus_sign:                                                  | String used to pick a non-default API version to use                | 2018-02-08                                                          |
 
-
 ### Response
 
 **[Order](../../Models/Components/Order.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Get
 
@@ -176,8 +178,8 @@ Retrieves an existing order using an object ID.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -197,10 +199,10 @@ var res = await sdk.Orders.GetAsync(
 | `OrderId`                                            | *string*                                             | :heavy_check_mark:                                   | Object ID of the order                               |                                                      |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[Order](../../Models/Components/Order.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |

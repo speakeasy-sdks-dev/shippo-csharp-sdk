@@ -31,8 +31,8 @@ template or a fully formed user parcel template object as the parcel value.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 using System.Collections.Generic;
 
 var sdk = new ShippoSDK(
@@ -41,10 +41,10 @@ var sdk = new ShippoSDK(
 
 var res = await sdk.RatesAtCheckout.CreateAsync(
     liveRateCreateRequest: new LiveRateCreateRequest() {
-    AddressFrom = LiveRateCreateRequestAddressFrom.CreateLiveRateCreateRequestAddressFromStr(
+    AddressFrom = LiveRateCreateRequestAddressFrom.CreateStr(
     "<value>",
     ),
-    AddressTo = LiveRateCreateRequestAddressTo.CreateLiveRateCreateRequestAddressToStr(
+    AddressTo = LiveRateCreateRequestAddressTo.CreateStr(
     "<value>",
     ),
     LineItems = new List<LineItem>() {
@@ -59,12 +59,38 @@ var res = await sdk.RatesAtCheckout.CreateAsync(
             TotalPrice = "12.1",
             VariantTitle = "June Edition",
             Weight = "0.4",
-            WeightUnit = WeightUnitEnum.Lb,
+            WeightUnit = Shippo.Models.Components.WeightUnitEnum.Lb,
             ObjectId = "abf7d5675d744b6ea9fdb6f796b28f28",
         },
     },
-    Parcel = LiveRateCreateRequestParcel.CreateLiveRateCreateRequestParcelStr(
-    "5df144dca289442cv7a06",
+    Parcel = LiveRateCreateRequestParcel.CreateParcel(
+            new Parcel() {
+                Extra = new ParcelExtra() {
+                    Cod = new Cod() {
+                        Amount = "5.5",
+                        Currency = "USD",
+                        PaymentMethod = Shippo.Models.Components.PaymentMethod.Cash,
+                    },
+                    Insurance = new ParcelInsurance() {
+                        Amount = "5.5",
+                        Content = "Laptop",
+                        Currency = "USD",
+                        Provider = Shippo.Models.Components.ParcelInsuranceProvider.Ups,
+                    },
+                },
+                Metadata = "Customer ID 123456",
+                MassUnit = Shippo.Models.Components.WeightUnitEnum.Lb,
+                Weight = "1",
+                DistanceUnit = Shippo.Models.Components.DistanceUnitEnum.In,
+                Height = "1",
+                Length = "1",
+                Width = "1",
+                ObjectCreated = System.DateTime.Parse("2014-07-09T02:19:13.174Z"),
+                ObjectId = "adcfdddf8ec64b84ad22772bce3ea37a",
+                ObjectOwner = "shippotle@shippo.com",
+                ObjectState = Shippo.Models.Components.ObjectState.Valid,
+                ObjectUpdated = System.DateTime.Parse("2014-07-09T02:19:13.174Z"),
+            },
     ),
 },
     shippoApiVersion: "2018-02-08");
@@ -79,15 +105,16 @@ var res = await sdk.RatesAtCheckout.CreateAsync(
 | `LiveRateCreateRequest`                                                   | [LiveRateCreateRequest](../../Models/Components/LiveRateCreateRequest.md) | :heavy_check_mark:                                                        | Generate rates at checkout                                                |                                                                           |
 | `ShippoApiVersion`                                                        | *string*                                                                  | :heavy_minus_sign:                                                        | String used to pick a non-default API version to use                      | 2018-02-08                                                                |
 
-
 ### Response
 
 **[LiveRatePaginatedList](../../Models/Components/LiveRatePaginatedList.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## GetDefaultParcelTemplate
 
@@ -97,8 +124,8 @@ Retrieve and display the currently configured default parcel template for live r
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -115,15 +142,16 @@ var res = await sdk.RatesAtCheckout.GetDefaultParcelTemplateAsync(shippoApiVersi
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[DefaultParcelTemplate](../../Models/Components/DefaultParcelTemplate.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## UpdateDefaultParcelTemplate
 
@@ -133,8 +161,8 @@ Update the currently configured default parcel template for live rates. The obje
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -156,15 +184,16 @@ var res = await sdk.RatesAtCheckout.UpdateDefaultParcelTemplateAsync(
 | `ShippoApiVersion`                                                                                  | *string*                                                                                            | :heavy_minus_sign:                                                                                  | String used to pick a non-default API version to use                                                | 2018-02-08                                                                                          |
 | `DefaultParcelTemplateUpdateRequest`                                                                | [DefaultParcelTemplateUpdateRequest](../../Models/Components/DefaultParcelTemplateUpdateRequest.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |                                                                                                     |
 
-
 ### Response
 
 **[DefaultParcelTemplate](../../Models/Components/DefaultParcelTemplate.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## DeleteDefaultParcelTemplate
 
@@ -174,8 +203,8 @@ Clears the currently configured default parcel template for live rates.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",

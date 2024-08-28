@@ -19,8 +19,8 @@ Creates a pickup object. This request is for a carrier to come to a specified lo
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 using System.Collections.Generic;
 
 var sdk = new ShippoSDK(
@@ -48,7 +48,7 @@ var res = await sdk.Pickups.CreateAsync(
             Validate = true,
         },
         BuildingLocationType = Shippo.Models.Components.BuildingLocationType.FrontDoor,
-        BuildingType = BuildingType.Apartment,
+        BuildingType = Shippo.Models.Components.BuildingType.Apartment,
         Instructions = "Behind screen door",
     },
     RequestedEndTime = System.DateTime.Parse("2023-06-18T07:14:55.676Z"),
@@ -69,10 +69,10 @@ var res = await sdk.Pickups.CreateAsync(
 | `PickupBase`                                                                                                                             | [PickupBase](../../Models/Components/PickupBase.md)                                                                                      | :heavy_check_mark:                                                                                                                       | Shippo’s pickups endpoint allows you to schedule pickups with USPS and DHL Express for eligible shipments that you have already created. |                                                                                                                                          |
 | `ShippoApiVersion`                                                                                                                       | *string*                                                                                                                                 | :heavy_minus_sign:                                                                                                                       | String used to pick a non-default API version to use                                                                                     | 2018-02-08                                                                                                                               |
 
-
 ### Response
 
 **[Pickup](../../Models/Components/Pickup.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |

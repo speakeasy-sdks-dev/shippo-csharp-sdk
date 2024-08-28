@@ -41,8 +41,8 @@ Optional path parameters:<br>
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -61,15 +61,16 @@ var res = await sdk.Shipments.ListAsync(req);
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `request`                                                             | [ListShipmentsRequest](../../Models/Requests/ListShipmentsRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
-
 ### Response
 
 **[ShipmentPaginatedList](../../Models/Components/ShipmentPaginatedList.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Create
 
@@ -79,8 +80,8 @@ Creates a new shipment object.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 using System.Collections.Generic;
 
 var sdk = new ShippoSDK(
@@ -108,7 +109,7 @@ var res = await sdk.Shipments.CreateAsync(
         Cod = new Cod() {
             Amount = "5.5",
             Currency = "USD",
-            PaymentMethod = PaymentMethod.Cash,
+            PaymentMethod = Shippo.Models.Components.PaymentMethod.Cash,
         },
         CodNumber = new UPSReferenceFields() {
             Prefix = "ABC",
@@ -192,7 +193,7 @@ var res = await sdk.Shipments.CreateAsync(
     },
     Metadata = "Customer ID 123456",
     ShipmentDate = "2021-03-22T12:00:00Z",
-    AddressFrom = AddressFrom.CreateAddressFromAddressCreateRequest(
+    AddressFrom = AddressFrom.CreateAddressCreateRequest(
             new AddressCreateRequest() {
                 Name = "Shwan Ippotle",
                 Company = "Shippo",
@@ -210,7 +211,7 @@ var res = await sdk.Shipments.CreateAsync(
                 Validate = true,
             },
     ),
-    AddressReturn = AddressReturn.CreateAddressReturnAddressCreateRequest(
+    AddressReturn = AddressReturn.CreateAddressCreateRequest(
             new AddressCreateRequest() {
                 Name = "Shwan Ippotle",
                 Company = "Shippo",
@@ -228,10 +229,10 @@ var res = await sdk.Shipments.CreateAsync(
                 Validate = true,
             },
     ),
-    AddressTo = AddressTo.CreateAddressToStr(
+    AddressTo = AddressTo.CreateStr(
     "d799c2679e644279b59fe661ac8fa489",
     ),
-    CustomsDeclaration = ShipmentCreateRequestCustomsDeclaration.CreateShipmentCreateRequestCustomsDeclarationStr(
+    CustomsDeclaration = ShipmentCreateRequestCustomsDeclaration.CreateStr(
     "adcfdddf8ec64b84ad22772bce3ea37a",
     ),
     CarrierAccounts = new List<string>() {
@@ -239,29 +240,7 @@ var res = await sdk.Shipments.CreateAsync(
         "73f706f4bdb94b54a337563840ce52b0",
     },
     Parcels = new List<Models.Components.Parcels>() {
-        Parcels.CreateParcelsParcelCreateFromTemplateRequest(
-            new ParcelCreateFromTemplateRequest() {
-                Extra = new ParcelExtra() {
-                    Cod = new Cod() {
-                        Amount = "5.5",
-                        Currency = "USD",
-                        PaymentMethod = PaymentMethod.Cash,
-                    },
-                    Insurance = new ParcelInsurance() {
-                        Amount = "5.5",
-                        Content = "Laptop",
-                        Currency = "USD",
-                        Provider = ParcelInsuranceProvider.Ups,
-                    },
-                },
-                Metadata = "Customer ID 123456",
-                MassUnit = Shippo.Models.Components.WeightUnitEnum.Lb,
-                Weight = "1",
-                Template = ParcelTemplateEnumSet.CreateParcelTemplateEnumSetUSPSParcelTemplate(
-                Shippo.Models.Components.USPSParcelTemplate.USPSFlatRateGiftCardEnvelope,
-                ),
-            },
-        ),
+
     },
 },
     shippoApiVersion: "2018-02-08");
@@ -276,15 +255,16 @@ var res = await sdk.Shipments.CreateAsync(
 | `ShipmentCreateRequest`                                                   | [ShipmentCreateRequest](../../Models/Components/ShipmentCreateRequest.md) | :heavy_check_mark:                                                        | Shipment details and contact info.                                        |                                                                           |
 | `ShippoApiVersion`                                                        | *string*                                                                  | :heavy_minus_sign:                                                        | String used to pick a non-default API version to use                      | 2018-02-08                                                                |
 
-
 ### Response
 
 **[Shipment](../../Models/Components/Shipment.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Get
 
@@ -294,8 +274,8 @@ Returns an existing shipment using an object ID
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -315,10 +295,10 @@ var res = await sdk.Shipments.GetAsync(
 | `ShipmentId`                                         | *string*                                             | :heavy_check_mark:                                   | Object ID of the shipment to update                  |                                                      |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[Shipment](../../Models/Components/Shipment.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |

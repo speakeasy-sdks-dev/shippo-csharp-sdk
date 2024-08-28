@@ -24,8 +24,8 @@ Returns a list of all parcel objects.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -47,15 +47,16 @@ var res = await sdk.Parcels.ListAsync(
 | `Results`                                            | *long*                                               | :heavy_minus_sign:                                   | The number of results to return per page (max 100)   |                                                      |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[ParcelPaginatedList](../../Models/Components/ParcelPaginatedList.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Create
 
@@ -65,27 +66,27 @@ Creates a new parcel object.
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
     shippoApiVersion: "2018-02-08");
 
 var res = await sdk.Parcels.CreateAsync(
-    requestBody: CreateParcelRequestBody.CreateCreateParcelRequestBodyParcelCreateRequest(
+    requestBody: CreateParcelRequestBody.CreateParcelCreateRequest(
     new ParcelCreateRequest() {
         Extra = new ParcelExtra() {
             Cod = new Cod() {
                 Amount = "5.5",
                 Currency = "USD",
-                PaymentMethod = PaymentMethod.Cash,
+                PaymentMethod = Shippo.Models.Components.PaymentMethod.Cash,
             },
             Insurance = new ParcelInsurance() {
                 Amount = "5.5",
                 Content = "Laptop",
                 Currency = "USD",
-                Provider = ParcelInsuranceProvider.Ups,
+                Provider = Shippo.Models.Components.ParcelInsuranceProvider.Ups,
             },
         },
         Metadata = "Customer ID 123456",
@@ -109,15 +110,16 @@ var res = await sdk.Parcels.CreateAsync(
 | `RequestBody`                                                               | [CreateParcelRequestBody](../../Models/Requests/CreateParcelRequestBody.md) | :heavy_check_mark:                                                          | Parcel details.                                                             |                                                                             |
 | `ShippoApiVersion`                                                          | *string*                                                                    | :heavy_minus_sign:                                                          | String used to pick a non-default API version to use                        | 2018-02-08                                                                  |
 
-
 ### Response
 
 **[Parcel](../../Models/Components/Parcel.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
 | Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+
 
 ## Get
 
@@ -127,8 +129,8 @@ Returns parcel details using an existing parcel object ID (this will not return 
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
@@ -148,10 +150,10 @@ var res = await sdk.Parcels.GetAsync(
 | `ParcelId`                                           | *string*                                             | :heavy_check_mark:                                   | Object ID of the parcel                              |                                                      |
 | `ShippoApiVersion`                                   | *string*                                             | :heavy_minus_sign:                                   | String used to pick a non-default API version to use | 2018-02-08                                           |
 
-
 ### Response
 
 **[Parcel](../../Models/Components/Parcel.md)**
+
 ### Errors
 
 | Error Object                      | Status Code                       | Content Type                      |
