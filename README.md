@@ -13,19 +13,38 @@ apiKeyHeader:"shippo_test_595d9cb0c0e14497bf07e75ecfec6c6d"
 ```
 
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Shippo external API.: Use this API to integrate with the Shippo service
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NuGet
 
+To add the [NuGet](https://www.nuget.org/) package to a .NET project:
 ```bash
 dotnet add package Shippo
 ```
 
 ### Locally
 
+To add a reference to a local instance of the SDK in a .NET project:
 ```bash
-dotnet add reference path/to/Shippo.csproj
+dotnet add reference Shippo/Shippo.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -36,17 +55,19 @@ dotnet add reference path/to/Shippo.csproj
 
 ```csharp
 using Shippo;
-using Shippo.Models.Components;
 using Shippo.Models.Requests;
+using Shippo.Models.Components;
 
 var sdk = new ShippoSDK(
     apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    shippoApiVersion: "2018-02-08");
+    shippoApiVersion: "2018-02-08"
+);
 
 var res = await sdk.Addresses.ListAsync(
     page: 1,
     results: 5,
-    shippoApiVersion: "2018-02-08");
+    shippoApiVersion: "2018-02-08"
+);
 
 // handle response
 ```

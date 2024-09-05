@@ -18,6 +18,7 @@ csharp:
   clientServerStatusCodesAsErrors: true
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net6.0
+  enableSourceLink: false
   flattenGlobalSecurity: true
   imports:
     option: openapi
@@ -27,9 +28,11 @@ csharp:
       operations: Models/Requests
       shared: Models/Components
       webhooks: Models/Webhooks
+  includeDebugSymbols: false
   inputModelSuffix: input
   license: MIT License
   maxMethodParams: 3
   outputModelSuffix: output
   packageName: Shippo
+  packageTags: ""
   responseFormat: flat
