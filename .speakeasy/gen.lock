@@ -4,7 +4,7 @@ management:
   docChecksum: 26a5bff7ea84e627d9d40ffa8ad22f03
   docVersion: "2018-02-08"
   speakeasyVersion: internal
-  generationVersion: 2.409.6
+  generationVersion: 2.409.5
   releaseVersion: 5.0.0-beta.4
   configChecksum: 2ad27656696f62bed85ee97d7ec01fcc
   repoURL: https://github.com/goshippo/shippo-csharp-sdk.git
@@ -13,7 +13,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.9.16
+    core: 3.9.17
     flattening: 2.81.2
     globalSecurity: 2.83.6
     globalSecurityCallbacks: 0.1.0
@@ -757,3 +757,547 @@ generatedFiles:
   - Shippo/Hooks/SDKHooks.cs
   - Shippo/Hooks/HookTypes.cs
   - CONTRIBUTING.md
+examples:
+  ListAddresses:
+    speakeasy-default-list-addresses:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateAddress:
+    speakeasy-default-create-address:
+      requestBody:
+        application/json: {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}
+      responses:
+        "201":
+          application/json: {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}
+  GetAddress:
+    speakeasy-default-get-address:
+      parameters:
+        path:
+          AddressId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}
+  ValidateAddress:
+    speakeasy-default-validate-address:
+      parameters:
+        path:
+          AddressId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}
+  CreateBatch:
+    speakeasy-default-create-batch:
+      requestBody:
+        application/json: {"default_carrier_account": "078870331023437cb917f5187429b093", "default_servicelevel_token": "usps_priority", "label_filetype": "PDF_4x6", "metadata": "BATCH #1", "batch_shipments": []}
+      responses:
+        "201":
+          application/json: {"default_carrier_account": "078870331023437cb917f5187429b093", "default_servicelevel_token": "usps_priority", "label_filetype": "PDF_4x6", "metadata": "BATCH #1", "batch_shipments": {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}, "label_url": [], "object_created": "2016-01-04T00:15:44.394Z", "object_id": "5ef63c54f5bf45d3b1f8fb37dcb1c5f4", "object_owner": "shippo@shippo.com", "object_results": {"creation_failed": 3, "creation_succeeded": 5, "purchase_failed": 0, "purchase_succeeded": 0}, "object_updated": "2016-01-04T00:48:13.841Z", "status": "VALID", "test": false}
+  GetBatch:
+    speakeasy-default-get-batch:
+      parameters:
+        path:
+          BatchId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"default_carrier_account": "078870331023437cb917f5187429b093", "default_servicelevel_token": "usps_priority", "label_filetype": "PDF_4x6", "metadata": "BATCH #1", "batch_shipments": {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}, "label_url": [], "object_created": "2016-01-04T00:15:44.394Z", "object_id": "5ef63c54f5bf45d3b1f8fb37dcb1c5f4", "object_owner": "shippo@shippo.com", "object_results": {"creation_failed": 3, "creation_succeeded": 5, "purchase_failed": 0, "purchase_succeeded": 0}, "object_updated": "2016-01-04T00:48:13.841Z", "status": "VALID", "test": false}
+  AddShipmentsToBatch:
+    speakeasy-default-add-shipments-to-batch:
+      parameters:
+        path:
+          BatchId: "<value>"
+        header: {}
+      requestBody:
+        application/json: []
+      responses:
+        "200":
+          application/json: {"default_carrier_account": "078870331023437cb917f5187429b093", "default_servicelevel_token": "usps_priority", "label_filetype": "PDF_4x6", "metadata": "BATCH #1", "batch_shipments": {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}, "label_url": [], "object_created": "2016-01-04T00:15:44.394Z", "object_id": "5ef63c54f5bf45d3b1f8fb37dcb1c5f4", "object_owner": "shippo@shippo.com", "object_results": {"creation_failed": 3, "creation_succeeded": 5, "purchase_failed": 0, "purchase_succeeded": 0}, "object_updated": "2016-01-04T00:48:13.841Z", "status": "VALID", "test": false}
+  PurchaseBatch:
+    speakeasy-default-purchase-batch:
+      parameters:
+        path:
+          BatchId: "<value>"
+        header: {}
+      responses:
+        "202":
+          application/json: {"default_carrier_account": "078870331023437cb917f5187429b093", "default_servicelevel_token": "usps_priority", "label_filetype": "PDF_4x6", "metadata": "BATCH #1", "batch_shipments": {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}, "label_url": [], "object_created": "2016-01-04T00:15:44.394Z", "object_id": "5ef63c54f5bf45d3b1f8fb37dcb1c5f4", "object_owner": "shippo@shippo.com", "object_results": {"creation_failed": 3, "creation_succeeded": 5, "purchase_failed": 0, "purchase_succeeded": 0}, "object_updated": "2016-01-04T00:48:13.841Z", "status": "VALID", "test": false}
+  RemoveShipmentsFromBatch:
+    speakeasy-default-remove-shipments-from-batch:
+      parameters:
+        path:
+          BatchId: "<value>"
+        header: {}
+      requestBody:
+        application/json: []
+      responses:
+        "200":
+          application/json: {"default_carrier_account": "078870331023437cb917f5187429b093", "default_servicelevel_token": "usps_priority", "label_filetype": "PDF_4x6", "metadata": "BATCH #1", "batch_shipments": {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}, "label_url": [], "object_created": "2016-01-04T00:15:44.394Z", "object_id": "5ef63c54f5bf45d3b1f8fb37dcb1c5f4", "object_owner": "shippo@shippo.com", "object_results": {"creation_failed": 3, "creation_succeeded": 5, "purchase_failed": 0, "purchase_succeeded": 0}, "object_updated": "2016-01-04T00:48:13.841Z", "status": "VALID", "test": false}
+  ListCarrierAccounts:
+    speakeasy-default-list-carrier-accounts:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateCarrierAccount:
+    speakeasy-default-create-carrier-account:
+      requestBody:
+        application/json: {"account_id": "321123", "carrier": "fedex", "metadata": "FEDEX Account", "parameters": {"first_name": "Jena", "last_name": "Nienow", "phone_number": "<value>", "from_address_st": "<value>", "from_address_city": "<value>", "from_address_state": "<value>", "from_address_zip": "<value>", "from_address_country_iso2": "<value>"}, "test": false}
+      responses:
+        "201":
+          application/json: {"account_id": "****", "carrier": "usps", "parameters": {"account_number": "94567e", "aia_country_iso2": "US", "billing_address_city": "San Francisco", "billing_address_country_iso2": "US", "billing_address_state": "CA", "billing_address_street1": "731 Market St", "billing_address_street2": "STE 200", "billing_address_zip": "94103", "collec_country_iso2": "US", "collec_zip": "94103", "company": "Shippo", "currency_code": "USD", "email": "hippo@shippo.com", "full_name": "Shippo Meister", "has_invoice": false, "invoice_controlid": "1234", "invoice_date": "20210529", "invoice_number": "1112234", "invoice_value": "11.23", "phone": "1112223333", "title": "Manager", "ups_agreements": false}, "carrier_name": "USPS", "is_shippo_account": false, "object_id": "6aa34d5f6865448fbb1ee93636e98999", "object_owner": "bob+22@gmail.com", "service_levels": [], "test": false}
+  GetCarrierAccount:
+    speakeasy-default-get-carrier-account:
+      parameters:
+        path:
+          CarrierAccountId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"account_id": "****", "carrier": "usps", "parameters": {"account_number": "94567e", "aia_country_iso2": "US", "billing_address_city": "San Francisco", "billing_address_country_iso2": "US", "billing_address_state": "CA", "billing_address_street1": "731 Market St", "billing_address_street2": "STE 200", "billing_address_zip": "94103", "collec_country_iso2": "US", "collec_zip": "94103", "company": "Shippo", "currency_code": "USD", "email": "hippo@shippo.com", "full_name": "Shippo Meister", "has_invoice": true, "invoice_controlid": "1234", "invoice_date": "20210529", "invoice_number": "1112234", "invoice_value": "11.23", "phone": "1112223333", "title": "Manager", "ups_agreements": false}, "carrier_name": "USPS", "is_shippo_account": false, "object_id": "6aa34d5f6865448fbb1ee93636e98999", "object_owner": "bob+22@gmail.com", "service_levels": [], "test": false}
+  UpdateCarrierAccount:
+    speakeasy-default-update-carrier-account:
+      parameters:
+        path:
+          CarrierAccountId: "<value>"
+        header: {}
+      requestBody:
+        application/json: {"account_id": "****", "carrier": "usps", "parameters": {"account_number": "94567e", "aia_country_iso2": "US", "billing_address_city": "San Francisco", "billing_address_country_iso2": "US", "billing_address_state": "CA", "billing_address_street1": "731 Market St", "billing_address_street2": "STE 200", "billing_address_zip": "94103", "collec_country_iso2": "US", "collec_zip": "94103", "company": "Shippo", "currency_code": "USD", "email": "hippo@shippo.com", "full_name": "Shippo Meister", "has_invoice": true, "invoice_controlid": "1234", "invoice_date": "20210529", "invoice_number": "1112234", "invoice_value": "11.23", "phone": "1112223333", "title": "Manager", "ups_agreements": true}}
+      responses:
+        "200":
+          application/json: {"account_id": "****", "carrier": "usps", "parameters": {"key": "<value>"}, "carrier_name": "USPS", "is_shippo_account": false, "object_id": "6aa34d5f6865448fbb1ee93636e98999", "object_owner": "bob+22@gmail.com", "service_levels": [], "test": false}
+  InitiateOauth2Signin:
+    speakeasy-default-initiate-oauth2-signin:
+      parameters:
+        path:
+          CarrierAccountObjectId: "<value>"
+        query:
+          redirect_uri: "http://fine-cummerbund.biz"
+        header: {}
+      responses:
+        "400":
+          application/json: {"title": "Missing required parameter", "detail": "redirect_uri"}
+        "401":
+          application/json: {"title": "Unsupported OAuth Carrier Account", "detail": "The carrier account 3c49f998b1234a2097ea0911a7e95bea does not support OAuth authorization"}
+        "404":
+          application/json: {"title": "Carrier Account not found", "detail": "Carrier Account not found for object_id: 3c49f998b1234a2097ea0911a7e95bea"}
+  RegisterCarrierAccount:
+    speakeasy-default-register-carrier-account:
+      requestBody:
+        application/json: {"carrier": "colissimo"}
+      responses:
+        "201":
+          application/json: {"account_id": "****", "carrier": "usps", "parameters": {"key": "<value>", "key1": "<value>"}, "carrier_name": "USPS", "is_shippo_account": false, "object_id": "6aa34d5f6865448fbb1ee93636e98999", "object_owner": "bob+22@gmail.com", "service_levels": [], "test": false}
+  GetCarrierRegistrationStatus:
+    speakeasy-default-get-carrier-registration-status:
+      parameters:
+        query:
+          carrier: "usps"
+        header: {}
+      responses:
+        "200":
+          application/json: {"carrier_account": "99dc410d295b4a168993cc38809cb123", "object_owner": "tom@gmail.com", "status": "PENDING_TERMS"}
+  ListCustomsDeclarations:
+    speakeasy-default-list-customs-declarations:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateCustomsDeclaration:
+    speakeasy-default-create-customs-declaration:
+      requestBody:
+        application/json: {"b13a_filing_option": "FILED_ELECTRONICALLY", "certify": true, "certify_signer": "Shawn Ippotle", "contents_explanation": "T-Shirt purchase", "exporter_identification": {"eori_number": "PL123456790ABCDE", "tax_id": {"number": "123456789", "type": "EIN"}}, "invoice": "#123123", "metadata": "Order ID #123123", "address_importer": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "Blumenstraße", "street3": "", "street_no": "22", "city": "München", "state": "CA", "zip": "80331", "country": "DE", "phone": "80331", "email": "shippotle@shippo.com", "is_residential": true}, "contents_type": "MERCHANDISE", "eel_pfc": "NOEEI_30_37_a", "incoterm": "DDP", "items": [], "non_delivery_option": "RETURN", "test": true}
+      responses:
+        "201":
+          application/json: {"b13a_filing_option": "FILED_ELECTRONICALLY", "certify": true, "certify_signer": "Shawn Ippotle", "contents_explanation": "T-Shirt purchase", "exporter_identification": {"eori_number": "PL123456790ABCDE", "tax_id": {"number": "123456789", "type": "EIN"}}, "invoice": "#123123", "metadata": "Order ID #123123", "address_importer": "257ba08436604d2aaf069caafe7acb2a", "contents_type": "MERCHANDISE", "eel_pfc": "NOEEI_30_37_a", "incoterm": "DDP", "items": ["5087f181d1dc4b14b73fdbf636498886"], "non_delivery_option": "RETURN", "object_created": "2014-07-17T01:01:08.306Z", "object_id": "e2197a54da9d470480f4f8796cc419cb", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-17T01:01:08.306Z", "test": true}
+  GetCustomsDeclaration:
+    speakeasy-default-get-customs-declaration:
+      parameters:
+        path:
+          CustomsDeclarationId: "<value>"
+        query: {}
+        header: {}
+      responses:
+        "200":
+          application/json: {"b13a_filing_option": "FILED_ELECTRONICALLY", "certify": true, "certify_signer": "Shawn Ippotle", "contents_explanation": "T-Shirt purchase", "exporter_identification": {"eori_number": "PL123456790ABCDE", "tax_id": {"number": "123456789", "type": "EIN"}}, "invoice": "#123123", "metadata": "Order ID #123123", "address_importer": "257ba08436604d2aaf069caafe7acb2a", "contents_type": "MERCHANDISE", "eel_pfc": "NOEEI_30_37_a", "incoterm": "DDP", "items": ["5087f181d1dc4b14b73fdbf636498886"], "non_delivery_option": "RETURN", "object_created": "2014-07-17T01:01:08.306Z", "object_id": "e2197a54da9d470480f4f8796cc419cb", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-17T01:01:08.306Z", "test": true}
+  ListCustomsItems:
+    speakeasy-default-list-customs-items:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateCustomsItem:
+    speakeasy-default-create-customs-item:
+      requestBody:
+        application/json: {"description": "T-Shirt", "mass_unit": "lb", "metadata": "Order ID \"123454\"", "net_weight": "5", "origin_country": "<value>", "quantity": 20, "sku_code": "HM-123", "hs_code": "0901.21", "value_amount": "200", "value_currency": "USD"}
+      responses:
+        "201":
+          application/json: {"description": "T-Shirt", "mass_unit": "lb", "metadata": "Order ID \"123454\"", "net_weight": "5", "origin_country": "<value>", "quantity": 20, "sku_code": "HM-123", "hs_code": "0901.21", "value_amount": "200", "value_currency": "USD", "object_created": "2014-07-17T00:49:20.631Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-17T00:49:20.631Z"}
+  GetCustomsItem:
+    speakeasy-default-get-customs-item:
+      parameters:
+        path:
+          CustomsItemId: "<value>"
+        query: {}
+        header: {}
+      responses:
+        "200":
+          application/json: {"description": "T-Shirt", "mass_unit": "lb", "metadata": "Order ID \"123454\"", "net_weight": "5", "origin_country": "<value>", "quantity": 20, "sku_code": "HM-123", "hs_code": "0901.21", "value_amount": "200", "value_currency": "USD", "object_created": "2014-07-17T00:49:20.631Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-17T00:49:20.631Z"}
+  CreateLiveRate:
+    speakeasy-default-create-live-rate:
+      requestBody:
+        application/json: {"address_from": "<value>", "address_to": "<value>", "line_items": [], "parcel": "5df144dca289442cv7a06"}
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "count": 123, "results": []}
+  GetDefaultParcelTemplate:
+    speakeasy-default-get-default-parcel-template:
+      responses:
+        "200":
+          application/json: {"result": {"distance_unit": "in", "height": "6", "length": "10", "name": "My Custom Template", "weight": "12", "weight_unit": "lb", "width": "8", "object_created": "2013-12-11T19:38:09.729Z", "object_id": "b958d3690bb04bb8b2986724872750f5", "object_owner": "shippotle@shippo.com", "object_updated": "2013-12-12T19:38:09.729Z", "template": {"carrier": "FedEx", "distance_unit": "in", "height": "1.5", "is_variable_dimensions": false, "length": "12.375", "name": "FedEx® Small Box (S1)", "token": "FedEx_Box_Small_1", "width": "10.875"}}}
+  UpdateDefaultParcelTemplate:
+    speakeasy-default-update-default-parcel-template:
+      requestBody:
+        application/json: {"object_id": "b958d3690bb04bb8b2986724872750f5"}
+      responses:
+        "200":
+          application/json: {"result": {"distance_unit": "in", "height": "6", "length": "10", "name": "My Custom Template", "weight": "12", "weight_unit": "lb", "width": "8", "object_created": "2013-12-11T19:38:09.729Z", "object_id": "b958d3690bb04bb8b2986724872750f5", "object_owner": "shippotle@shippo.com", "object_updated": "2013-12-12T19:38:09.729Z", "template": {"carrier": "FedEx", "distance_unit": "in", "height": "1.5", "is_variable_dimensions": false, "length": "12.375", "name": "FedEx® Small Box (S1)", "token": "FedEx_Box_Small_1", "width": "10.875"}}}
+  DeleteDefaultParcelTemplate:
+    speakeasy-default-delete-default-parcel-template: {}
+  ListManifests:
+    speakeasy-default-list-manifests:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateManifest:
+    speakeasy-default-create-manifest:
+      requestBody:
+        application/json: {"carrier_account": "adcfdddf8ec64b84ad22772bce3ea37a", "shipment_date": "2014-05-16T23:59:59Z", "transactions": ["adcfdddf8ec64b84ad22772bce3ea37a"], "address_from": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}}
+      responses:
+        "201":
+          application/json: {"carrier_account": "adcfdddf8ec64b84ad22772bce3ea37a", "shipment_date": "2014-05-16T23:59:59Z", "transactions": ["adcfdddf8ec64b84ad22772bce3ea37a"], "address_from": "d799c2679e644279b59fe661ac8fa488", "documents": ["https://shippo-delivery.s3.amazonaws.com/0fadebf6f60c4aca95fa01bcc59c79ae.pdf?Signature=tlQU3RECwdHUQJQadwqg5bAzGFQ%3D&Expires=1402803835&AWSAccessKeyId=AKIAJTHP3LLFMYAWALIA"], "object_created": "2023-06-21T08:42:38.998Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_updated": "2023-12-01T17:06:07.793Z", "status": "SUCCESS"}
+  GetManifest:
+    speakeasy-default-get-manifest:
+      parameters:
+        path:
+          ManifestId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"carrier_account": "adcfdddf8ec64b84ad22772bce3ea37a", "shipment_date": "2014-05-16T23:59:59Z", "transactions": ["adcfdddf8ec64b84ad22772bce3ea37a"], "address_from": "d799c2679e644279b59fe661ac8fa488", "documents": ["https://shippo-delivery.s3.amazonaws.com/0fadebf6f60c4aca95fa01bcc59c79ae.pdf?Signature=tlQU3RECwdHUQJQadwqg5bAzGFQ%3D&Expires=1402803835&AWSAccessKeyId=AKIAJTHP3LLFMYAWALIA"], "object_created": "2024-02-07T13:54:48.780Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_updated": "2022-04-09T17:04:24.706Z", "status": "SUCCESS"}
+  ListOrders:
+    speakeasy-default-list-orders:
+      parameters:
+        query:
+          order_status[]: ["PAID"]
+          shop_app: "Shippo"
+        header: {}
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateOrder:
+    speakeasy-default-create-order:
+      requestBody:
+        application/json: {"currency": "USD", "notes": "This customer is a VIP", "order_number": "#1068", "order_status": "PAID", "placed_at": "2016-09-23T01:28:12Z", "shipping_cost": "12.83", "shipping_cost_currency": "USD", "shipping_method": "USPS First Class Package", "subtotal_price": "12.1", "total_price": "24.93", "total_tax": "0.0", "weight": "0.4", "weight_unit": "lb", "from_address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}, "to_address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}, "line_items": []}
+      responses:
+        "201":
+          application/json: {"currency": "USD", "notes": "This customer is a VIP", "order_number": "#1068", "order_status": "PAID", "placed_at": "2016-09-23T01:28:12Z", "shipping_cost": "12.83", "shipping_cost_currency": "USD", "shipping_method": "USPS First Class Package", "subtotal_price": "12.1", "total_price": "24.93", "total_tax": "0.0", "weight": "0.4", "weight_unit": "lb", "from_address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "to_address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "line_items": [], "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "shop_app": "Shippo"}
+  GetOrder:
+    speakeasy-default-get-order:
+      parameters:
+        path:
+          OrderId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"currency": "USD", "notes": "This customer is a VIP", "order_number": "#1068", "order_status": "PAID", "placed_at": "2016-09-23T01:28:12Z", "shipping_cost": "12.83", "shipping_cost_currency": "USD", "shipping_method": "USPS First Class Package", "subtotal_price": "12.1", "total_price": "24.93", "total_tax": "0.0", "weight": "0.4", "weight_unit": "lb", "from_address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "to_address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "line_items": [], "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "shop_app": "Shippo"}
+  ListCarrierParcelTemplates:
+    "":
+      parameters:
+        query:
+          carrier: "fedex"
+        header: {}
+      responses:
+        "200":
+          application/json: {"results": []}
+  GetCarrierParcelTemplate:
+    speakeasy-default-get-carrier-parcel-template:
+      parameters:
+        path:
+          CarrierParcelTemplateToken: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"carrier": "FedEx", "distance_unit": "in", "height": "1.5", "is_variable_dimensions": false, "length": "12.375", "name": "FedEx® Small Box (S1)", "token": "FedEx_Box_Small_1", "width": "10.875"}
+  ListParcels:
+    speakeasy-default-list-parcels:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": [{"extra": {"COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "insurance": {"amount": "5.5", "content": "Laptop", "currency": "USD", "provider": "UPS"}}, "metadata": "Customer ID 123456", "mass_unit": "lb", "weight": "1", "distance_unit": "in", "height": "1", "length": "1", "width": "1", "object_created": "2014-07-09T02:19:13.174Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_state": "VALID", "object_updated": "2014-07-09T02:19:13.174Z"}]}
+  CreateParcel:
+    speakeasy-default-create-parcel:
+      requestBody:
+        application/json: {"extra": {"COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "insurance": {"amount": "5.5", "content": "Laptop", "currency": "USD", "provider": "UPS"}}, "metadata": "Customer ID 123456", "mass_unit": "lb", "weight": "1", "distance_unit": "in", "height": "1", "length": "1", "width": "1"}
+      responses:
+        "201":
+          application/json: {"extra": {"COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "insurance": {"amount": "5.5", "content": "Laptop", "currency": "USD", "provider": "UPS"}}, "metadata": "Customer ID 123456", "mass_unit": "lb", "weight": "1", "distance_unit": "in", "height": "1", "length": "1", "width": "1", "object_created": "2014-07-09T02:19:13.174Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_state": "VALID", "object_updated": "2014-07-09T02:19:13.174Z"}
+  GetParcel:
+    speakeasy-default-get-parcel:
+      parameters:
+        path:
+          ParcelId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"extra": {"COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "insurance": {"amount": "5.5", "content": "Laptop", "currency": "USD", "provider": "UPS"}}, "metadata": "Customer ID 123456", "mass_unit": "lb", "weight": "1", "distance_unit": "in", "height": "1", "length": "1", "width": "1", "object_created": "2014-07-09T02:19:13.174Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_state": "VALID", "object_updated": "2014-07-09T02:19:13.174Z"}
+  CreatePickup:
+    speakeasy-default-create-pickup:
+      requestBody:
+        application/json: {"carrier_account": "adcfdddf8ec64b84ad22772bce3ea37a", "location": {"address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}, "building_location_type": "Front Door", "building_type": "apartment", "instructions": "Behind screen door"}, "requested_end_time": "2023-06-18T07:14:55.676Z", "requested_start_time": "2023-06-21T08:42:38.998Z", "transactions": ["adcfdddf8ec64b84ad22772bce3ea37a"]}
+      responses:
+        "201":
+          application/json: {"carrier_account": "adcfdddf8ec64b84ad22772bce3ea37a", "location": {"address": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}, "building_location_type": "Front Door", "building_type": "apartment", "instructions": "Behind screen door"}, "requested_end_time": "2023-12-01T17:06:07.793Z", "requested_start_time": "2024-07-30T16:43:31.437Z", "transactions": ["adcfdddf8ec64b84ad22772bce3ea37a"], "confirmed_start_time": "2020-05-09T12:00:00Z", "confirmed_end_time": "2020-05-09T23:59:59.999Z", "cancel_by_time": "2020-05-09T08:00:00Z", "status": "CONFIRMED", "confirmation_code": "WTC310058750", "timezone": "US/Pacific", "messages": []}
+  GetRate:
+    speakeasy-default-get-rate:
+      parameters:
+        path:
+          RateId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"amount": "5.5", "amount_local": "5.5", "currency": "USD", "currency_local": "USD", "arrives_by": "08:30:00", "attributes": [], "carrier_account": "078870331023437cb917f5187429b093", "duration_terms": "Delivery in 1 to 3 business days", "estimated_days": 2, "included_insurance_price": "1.05", "messages": [], "object_created": "2024-02-07T13:54:48.780Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "pp@gmail.com", "provider": "USPS", "provider_image_75": "https://cdn2.goshippo.com/providers/75/USPS.png", "provider_image_200": "https://cdn2.goshippo.com/providers/200/USPS.png", "servicelevel": {"name": "Priority Mail Express", "token": "usps_priority_express", "parent_servicelevel": {"name": "Priority Mail Express", "token": "usps_priority_express"}}, "shipment": "adcfdddf8ec64b84ad22772bce3ea37a", "zone": "1"}
+  ListShipmentRates:
+    speakeasy-default-list-shipment-rates:
+      parameters:
+        path:
+          ShipmentId: "<value>"
+        query: {}
+        header: {}
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  ListShipmentRatesByCurrencyCode:
+    speakeasy-default-list-shipment-rates-by-currency-code:
+      parameters:
+        path:
+          ShipmentId: "<value>"
+          CurrencyCode: "USD"
+        query: {}
+        header: {}
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateRefund:
+    speakeasy-default-create-refund:
+      requestBody:
+        application/json: {"async": false, "transaction": "915d94940ea54c3a80cbfa328722f5a1"}
+      responses:
+        "201":
+          application/json: {"object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "status": "SUCCESS", "transaction": "915d94940ea54c3a80cbfa328722f5a1"}
+  ListRefunds:
+    speakeasy-default-list-refunds:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  GetRefund:
+    speakeasy-default-get-refund:
+      parameters:
+        path:
+          RefundId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "status": "SUCCESS", "transaction": "915d94940ea54c3a80cbfa328722f5a1"}
+  ListServiceGroups:
+    speakeasy-default-list-service-groups:
+      responses:
+        "200":
+          application/json: []
+  CreateServiceGroup:
+    speakeasy-default-create-service-group:
+      requestBody:
+        application/json: {"description": "USPS shipping options", "flat_rate": "5", "flat_rate_currency": "USD", "free_shipping_threshold_currency": "USD", "free_shipping_threshold_min": "5", "name": "USPS Shipping", "rate_adjustment": 15, "type": "FLAT_RATE", "service_levels": []}
+      responses:
+        "201":
+          application/json: {"description": "USPS shipping options", "flat_rate": "5", "flat_rate_currency": "USD", "free_shipping_threshold_currency": "USD", "free_shipping_threshold_min": "5", "name": "USPS Shipping", "rate_adjustment": 15, "type": "FLAT_RATE", "object_id": "80feb1633d4a43c898f005850", "is_active": true, "service_levels": []}
+  UpdateServiceGroup:
+    speakeasy-default-update-service-group:
+      requestBody:
+        application/json: {"description": "USPS shipping options", "flat_rate": "5", "flat_rate_currency": "USD", "free_shipping_threshold_currency": "USD", "free_shipping_threshold_min": "5", "name": "USPS Shipping", "rate_adjustment": 15, "type": "FLAT_RATE", "object_id": "80feb1633d4a43c898f005850", "is_active": true, "service_levels": []}
+      responses:
+        "200":
+          application/json: {"description": "USPS shipping options", "flat_rate": "5", "flat_rate_currency": "USD", "free_shipping_threshold_currency": "USD", "free_shipping_threshold_min": "5", "name": "USPS Shipping", "rate_adjustment": 15, "type": "FLAT_RATE", "object_id": "80feb1633d4a43c898f005850", "is_active": true, "service_levels": []}
+  DeleteServiceGroup:
+    speakeasy-default-delete-service-group:
+      parameters:
+        path:
+          ServiceGroupId: "<value>"
+        header: {}
+  ListShipments:
+    speakeasy-default-list-shipments:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateShipment:
+    speakeasy-default-create-shipment:
+      requestBody:
+        application/json: {"extra": {"accounts_receivable_customer_account": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "appropriation_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "bill_of_lading_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "cod_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "customer_reference": {"ref_sort": 1}, "dealer_order_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "dept_number": {"ref_sort": 3}, "fda_product_code": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "insurance": {"amount": "5.5", "currency": "USD"}, "invoice_number": {"ref_sort": 2}, "manifest_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "model_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "part_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "po_number": {"ref_sort": 2}, "production_code": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "purchase_request_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "rma_number": {"ref_sort": 1}, "salesperson_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "serial_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "store_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "transaction_reference_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}}, "metadata": "Customer ID 123456", "shipment_date": "2021-03-22T12:00:00Z", "address_from": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}, "address_return": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "validate": true}, "address_to": "d799c2679e644279b59fe661ac8fa489", "customs_declaration": "adcfdddf8ec64b84ad22772bce3ea37a", "carrier_accounts": ["065a4a8c10d24a34ab932163a1b87f52", "73f706f4bdb94b54a337563840ce52b0"], "parcels": []}
+      responses:
+        "201":
+          application/json: {"extra": {"accounts_receivable_customer_account": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "appropriation_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "bill_of_lading_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "cod_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "customer_reference": {"ref_sort": 1}, "dealer_order_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "dept_number": {"ref_sort": 3}, "fda_product_code": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "insurance": {"amount": "5.5", "currency": "USD"}, "invoice_number": {"ref_sort": 2}, "manifest_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "model_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "part_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "po_number": {"ref_sort": 2}, "production_code": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "purchase_request_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "rma_number": {"ref_sort": 1}, "salesperson_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "serial_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "store_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "transaction_reference_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}}, "metadata": "Customer ID 123456", "shipment_date": "2021-03-22T12:00:00Z", "address_from": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "address_return": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "address_to": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "carrier_accounts": [], "customs_declaration": {"b13a_filing_option": "FILED_ELECTRONICALLY", "certify": true, "certify_signer": "Shawn Ippotle", "contents_explanation": "T-Shirt purchase", "exporter_identification": {"eori_number": "PL123456790ABCDE", "tax_id": {"number": "123456789", "type": "EIN"}}, "invoice": "#123123", "metadata": "Order ID #123123", "address_importer": "257ba08436604d2aaf069caafe7acb2a", "contents_type": "MERCHANDISE", "eel_pfc": "NOEEI_30_37_a", "incoterm": "DDP", "items": ["5087f181d1dc4b14b73fdbf636498886"], "non_delivery_option": "RETURN", "object_created": "2014-07-17T01:01:08.306Z", "object_id": "e2197a54da9d470480f4f8796cc419cb", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-17T01:01:08.306Z", "test": true}, "messages": [], "object_created": "2023-04-03T12:48:32.050Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "pp@gmail.com", "object_updated": "2022-11-13T02:16:42.101Z", "parcels": [{"extra": {"COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "insurance": {"amount": "5.5", "content": "Laptop", "currency": "USD", "provider": "UPS"}}, "metadata": "Customer ID 123456", "mass_unit": "lb", "weight": "1", "distance_unit": "in", "height": "1", "length": "1", "width": "1", "object_created": "2014-07-09T02:19:13.174Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_state": "VALID", "object_updated": "2014-07-09T02:19:13.174Z"}], "rates": [], "status": "QUEUED"}
+  GetShipment:
+    speakeasy-default-get-shipment:
+      parameters:
+        path:
+          ShipmentId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"extra": {"accounts_receivable_customer_account": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "appropriation_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "bill_of_lading_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "cod_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "customer_reference": {"ref_sort": 1}, "dealer_order_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "dept_number": {"ref_sort": 3}, "fda_product_code": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "insurance": {"amount": "5.5", "currency": "USD"}, "invoice_number": {"ref_sort": 2}, "manifest_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "model_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "part_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "po_number": {"ref_sort": 2}, "production_code": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "purchase_request_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "rma_number": {"ref_sort": 1}, "salesperson_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "serial_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "store_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}, "transaction_reference_number": {"prefix": "ABC", "value": "value", "ref_sort": 1}}, "metadata": "Customer ID 123456", "shipment_date": "2021-03-22T12:00:00Z", "address_from": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "address_return": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "address_to": {"name": "Shwan Ippotle", "company": "Shippo", "street1": "215 Clayton St.", "street3": "", "street_no": "", "city": "San Francisco", "state": "CA", "zip": "94117", "country": "US", "phone": "+1 555 341 9393", "email": "shippotle@shippo.com", "is_residential": true, "metadata": "Customer ID 123456", "is_complete": true, "object_created": "2014-07-09T02:19:13.174Z", "object_id": "d799c2679e644279b59fe661ac8fa488", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-09T02:19:13.174Z", "validation_results": {"is_valid": false, "messages": []}, "test": false}, "carrier_accounts": [], "customs_declaration": {"b13a_filing_option": "FILED_ELECTRONICALLY", "certify": true, "certify_signer": "Shawn Ippotle", "contents_explanation": "T-Shirt purchase", "exporter_identification": {"eori_number": "PL123456790ABCDE", "tax_id": {"number": "123456789", "type": "EIN"}}, "invoice": "#123123", "metadata": "Order ID #123123", "address_importer": "257ba08436604d2aaf069caafe7acb2a", "contents_type": "MERCHANDISE", "eel_pfc": "NOEEI_30_37_a", "incoterm": "DDP", "items": ["5087f181d1dc4b14b73fdbf636498886"], "non_delivery_option": "RETURN", "object_created": "2014-07-17T01:01:08.306Z", "object_id": "e2197a54da9d470480f4f8796cc419cb", "object_owner": "shippotle@shippo.com", "object_updated": "2014-07-17T01:01:08.306Z", "test": true}, "messages": [], "object_created": "2024-02-07T13:54:48.780Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "pp@gmail.com", "object_updated": "2022-04-09T17:04:24.706Z", "parcels": [{"extra": {"COD": {"amount": "5.5", "currency": "USD", "payment_method": "CASH"}, "insurance": {"amount": "5.5", "content": "Laptop", "currency": "USD", "provider": "UPS"}}, "metadata": "Customer ID 123456", "mass_unit": "lb", "weight": "1", "distance_unit": "in", "height": "1", "length": "1", "width": "1", "object_created": "2014-07-09T02:19:13.174Z", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "object_owner": "shippotle@shippo.com", "object_state": "VALID", "object_updated": "2014-07-09T02:19:13.174Z"}], "rates": [], "status": "QUEUED"}
+  CreateTrack:
+    speakeasy-default-create-track:
+      requestBody:
+        application/json: {"carrier": "usps", "metadata": "Order 000123", "tracking_number": "9205590164917312751089"}
+      responses:
+        "200":
+          application/json: {"address_from": {"city": "Las Vegas", "country": "US", "state": "NV", "zip": "89101"}, "address_to": {"city": "Las Vegas", "country": "US", "state": "NV", "zip": "89101"}, "carrier": "usps", "messages": [], "metadata": "Order 000123", "original_eta": "2021-07-23T00:00:00Z", "servicelevel": {"name": "Priority Mail Express", "token": "usps_priority_express", "parent_servicelevel": {"name": "Priority Mail Express", "token": "usps_priority_express"}}, "tracking_history": [], "tracking_number": "9205590164917312751089", "tracking_status": {"location": {"city": "Las Vegas", "country": "US", "state": "NV", "zip": "89101"}, "object_created": "2023-06-18T07:14:55.676Z", "object_id": "<value>", "object_updated": "2023-06-21T08:42:38.998Z", "status": "DELIVERED", "substatus": {"code": "information_received", "text": "Information about the package received.", "action_required": false}, "status_date": "2016-07-23T00:00:00Z", "status_details": "Your shipment has been delivered at the destination mailbox."}}
+  GetTrack:
+    speakeasy-default-get-track:
+      parameters:
+        path:
+          TrackingNumber: "<value>"
+          Carrier: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"address_from": {"city": "Las Vegas", "country": "US", "state": "NV", "zip": "89101"}, "address_to": {"city": "Las Vegas", "country": "US", "state": "NV", "zip": "89101"}, "carrier": "usps", "messages": [], "metadata": "Order 000123", "original_eta": "2021-07-23T00:00:00Z", "servicelevel": {"name": "Priority Mail Express", "token": "usps_priority_express", "parent_servicelevel": {"name": "Priority Mail Express", "token": "usps_priority_express"}}, "tracking_history": [], "tracking_number": "9205590164917312751089", "tracking_status": {"location": {"city": "Las Vegas", "country": "US", "state": "NV", "zip": "89101"}, "object_created": "2024-02-07T13:54:48.780Z", "object_id": "<value>", "object_updated": "2022-04-09T17:04:24.706Z", "status": "DELIVERED", "substatus": {"code": "information_received", "text": "Information about the package received.", "action_required": false}, "status_date": "2016-07-23T00:00:00Z", "status_details": "Your shipment has been delivered at the destination mailbox."}}
+  ListTransactions:
+    speakeasy-default-list-transactions:
+      parameters:
+        query:
+          object_status: "SUCCESS"
+          tracking_status: "DELIVERED"
+        header: {}
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateTransaction:
+    speakeasy-default-create-transaction:
+      requestBody:
+        application/json: {"async": false, "label_file_type": "PDF_4x6", "metadata": "Order ID #12345", "rate": "ec9f0d3adc9441449c85d315f0997fd5"}
+      responses:
+        "201":
+          application/json: {"created_by": {"first_name": "Shwan", "last_name": "Ippotle", "username": "shippotle@shippo.com"}, "label_file_type": "PDF_4x6", "label_url": "https://shippo-delivery.s3.amazonaws.com/70ae8117ee1749e393f249d5b77c45e0.pdf?Signature=vDw1ltcyGveVR1OQoUDdzC43BY8%3D&Expires=1437093830&AWSAccessKeyId=AKIAJTHP3LLFMYAWALIA", "messages": [], "object_id": "915d94940ea54c3a80cbfa328722f5a1", "object_owner": "shippotle@shippo.com", "parcel": "e94c7fdfdc7b495dbb390a28d929d90a", "qr_code_url": "https://shippo-delivery.s3.amazonaws.com/96_qr_code.pdf?Signature=PEdWrp0mFWAGwJp7FW3b%2FeA2eyY%3D&Expires=1385930652&AWSAccessKeyId=AKIAJTHP3LLFMYAWALIA", "rate": {"amount": "5.5", "amount_local": "5.5", "currency": "USD", "currency_local": "USD", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a", "provider": "USPS", "carrier_account": "078870331023437cb917f5187429b093", "servicelevel_name": "Priority Mail", "servicelevel_token": "fedex_ground"}, "status": "SUCCESS", "tracking_number": "9499907123456123456781", "tracking_status": "DELIVERED", "tracking_url_provider": "https://tools.usps.com/go/TrackConfirmAction_input?origTrackNum=9499907123456123456781"}
+  GetTransaction:
+    speakeasy-default-get-transaction:
+      parameters:
+        path:
+          TransactionId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"created_by": {"first_name": "Shwan", "last_name": "Ippotle", "username": "shippotle@shippo.com"}, "label_file_type": "PDF_4x6", "label_url": "https://shippo-delivery.s3.amazonaws.com/70ae8117ee1749e393f249d5b77c45e0.pdf?Signature=vDw1ltcyGveVR1OQoUDdzC43BY8%3D&Expires=1437093830&AWSAccessKeyId=AKIAJTHP3LLFMYAWALIA", "messages": [], "object_id": "915d94940ea54c3a80cbfa328722f5a1", "object_owner": "shippotle@shippo.com", "parcel": "e94c7fdfdc7b495dbb390a28d929d90a", "qr_code_url": "https://shippo-delivery.s3.amazonaws.com/96_qr_code.pdf?Signature=PEdWrp0mFWAGwJp7FW3b%2FeA2eyY%3D&Expires=1385930652&AWSAccessKeyId=AKIAJTHP3LLFMYAWALIA", "rate": "ec9f0d3adc9441449c85d315f0997fd5", "status": "SUCCESS", "tracking_number": "9499907123456123456781", "tracking_status": "DELIVERED", "tracking_url_provider": "https://tools.usps.com/go/TrackConfirmAction_input?origTrackNum=9499907123456123456781"}
+  ListUserParcelTemplates:
+    speakeasy-default-list-user-parcel-templates:
+      responses:
+        "200":
+          application/json: {"results": []}
+  CreateUserParcelTemplate:
+    speakeasy-default-create-user-parcel-template:
+      requestBody:
+        application/json: {"weight": "12", "weight_unit": "lb"}
+      responses:
+        "200":
+          application/json: {"distance_unit": "in", "height": "6", "length": "10", "name": "My Custom Template", "weight": "12", "weight_unit": "lb", "width": "8", "object_created": "2013-12-11T19:38:09.729Z", "object_id": "b958d3690bb04bb8b2986724872750f5", "object_owner": "shippotle@shippo.com", "object_updated": "2013-12-12T19:38:09.729Z", "template": {"carrier": "FedEx", "distance_unit": "in", "height": "1.5", "is_variable_dimensions": false, "length": "12.375", "name": "FedEx® Small Box (S1)", "token": "FedEx_Box_Small_1", "width": "10.875"}}
+  DeleteUserParcelTemplate:
+    speakeasy-default-delete-user-parcel-template:
+      parameters:
+        path:
+          UserParcelTemplateObjectId: "<value>"
+        header: {}
+  GetUserParcelTemplate:
+    speakeasy-default-get-user-parcel-template:
+      parameters:
+        path:
+          UserParcelTemplateObjectId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"distance_unit": "in", "height": "6", "length": "10", "name": "My Custom Template", "weight": "12", "weight_unit": "lb", "width": "8", "object_created": "2013-12-11T19:38:09.729Z", "object_id": "b958d3690bb04bb8b2986724872750f5", "object_owner": "shippotle@shippo.com", "object_updated": "2013-12-12T19:38:09.729Z", "template": {"carrier": "FedEx", "distance_unit": "in", "height": "1.5", "is_variable_dimensions": false, "length": "12.375", "name": "FedEx® Small Box (S1)", "token": "FedEx_Box_Small_1", "width": "10.875"}}
+  UpdateUserParcelTemplate:
+    speakeasy-default-update-user-parcel-template:
+      parameters:
+        path:
+          UserParcelTemplateObjectId: "<value>"
+        header: {}
+      requestBody:
+        application/json: {"distance_unit": "in", "height": "6", "length": "10", "name": "My Custom Template", "weight": "12", "weight_unit": "lb", "width": "8"}
+      responses:
+        "200":
+          application/json: {"distance_unit": "in", "height": "6", "length": "10", "name": "My Custom Template", "weight": "12", "weight_unit": "lb", "width": "8", "object_created": "2013-12-11T19:38:09.729Z", "object_id": "b958d3690bb04bb8b2986724872750f5", "object_owner": "shippotle@shippo.com", "object_updated": "2013-12-12T19:38:09.729Z", "template": {"carrier": "FedEx", "distance_unit": "in", "height": "1.5", "is_variable_dimensions": false, "length": "12.375", "name": "FedEx® Small Box (S1)", "token": "FedEx_Box_Small_1", "width": "10.875"}}
+  ListShippoAccounts:
+    speakeasy-default-list-shippo-accounts:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  CreateShippoAccount:
+    speakeasy-default-create-shippo-account:
+      requestBody:
+        application/json: {"email": "hippo@shippo.com", "first_name": "Shippo", "last_name": "Meister", "company_name": "Acme"}
+      responses:
+        "201":
+          application/json: {"email": "hippo@shippo.com", "first_name": "Shippo", "last_name": "Meister", "company_name": "Acme", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a"}
+  GetShippoAccount:
+    speakeasy-default-get-shippo-account:
+      parameters:
+        path:
+          ShippoAccountId: "<value>"
+        header: {}
+      responses:
+        "200":
+          application/json: {"email": "hippo@shippo.com", "first_name": "Shippo", "last_name": "Meister", "company_name": "Acme", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a"}
+  UpdateShippoAccount:
+    speakeasy-default-update-shippo-account:
+      parameters:
+        path:
+          ShippoAccountId: "<value>"
+        header: {}
+      requestBody:
+        application/json: {"email": "hippo@shippo.com", "first_name": "Shippo", "last_name": "Meister", "company_name": "Acme"}
+      responses:
+        "200":
+          application/json: {"email": "hippo@shippo.com", "first_name": "Shippo", "last_name": "Meister", "company_name": "Acme", "object_id": "adcfdddf8ec64b84ad22772bce3ea37a"}
+  createWebhook:
+    speakeasy-default-create-webhook:
+      requestBody:
+        application/json: {"event": "batch_created", "url": "https://example.com/shippo-webhook", "active": true, "is_test": false}
+      responses:
+        "201":
+          application/json: {"event": "track_updated", "url": "https://example.com/shippo-webhook", "active": true, "is_test": false}
+  listWebhooks:
+    speakeasy-default-list-webhooks:
+      responses:
+        "200":
+          application/json: {"next": "baseurl?page=3&results=10", "previous": "baseurl?page=1&results=10", "results": []}
+  getWebhook:
+    speakeasy-default-get-webhook:
+      parameters:
+        path:
+          webhookId: "<value>"
+      responses:
+        "200":
+          application/json: {"event": "track_updated", "url": "https://example.com/shippo-webhook", "active": true, "is_test": false}
+  updateWebhook:
+    speakeasy-default-update-webhook:
+      parameters:
+        path:
+          webhookId: "<value>"
+      requestBody:
+        application/json: {"event": "batch_created", "url": "https://example.com/shippo-webhook", "active": true, "is_test": false}
+      responses:
+        "200":
+          application/json: {"event": "track_updated", "url": "https://example.com/shippo-webhook", "active": true, "is_test": false}
+  deleteWebhook:
+    speakeasy-default-delete-webhook:
+      parameters:
+        path:
+          webhookId: "<value>"
