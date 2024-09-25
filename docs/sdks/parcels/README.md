@@ -142,7 +142,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Parcels.GetAsync(
-    parcelId: "<value>",
+    parcelId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 

@@ -330,7 +330,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Batches.GetAsync(
-    batchId: "<value>",
+    batchId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -373,7 +373,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Batches.AddShipmentsAsync(
-    batchId: "<value>",
+    batchId: "<id>",
     requestBody: new List<BatchShipmentCreateRequest>() {
         new BatchShipmentCreateRequest() {
             CarrierAccount = "a4391cd4ab974f478f55dc08b5c8e3b3",
@@ -582,7 +582,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Batches.PurchaseAsync(
-    batchId: "<value>",
+    batchId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -625,7 +625,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Batches.RemoveShipmentsAsync(
-    batchId: "<value>",
+    batchId: "<id>",
     requestBody: new List<string>() {
         "<value>",
     },

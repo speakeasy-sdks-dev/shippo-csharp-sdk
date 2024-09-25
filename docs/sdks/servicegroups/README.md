@@ -187,7 +187,7 @@ var sdk = new ShippoSDK(
 );
 
 await sdk.ServiceGroups.DeleteAsync(
-    serviceGroupId: "<value>",
+    serviceGroupId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 

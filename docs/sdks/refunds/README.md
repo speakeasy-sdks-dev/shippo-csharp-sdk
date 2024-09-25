@@ -112,7 +112,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Refunds.GetAsync(
-    refundId: "<value>",
+    refundId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 

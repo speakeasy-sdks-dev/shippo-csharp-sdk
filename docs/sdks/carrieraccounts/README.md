@@ -138,7 +138,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CarrierAccounts.GetAsync(
-    carrierAccountId: "<value>",
+    carrierAccountId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -181,7 +181,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CarrierAccounts.UpdateAsync(
-    carrierAccountId: "<value>",
+    carrierAccountId: "<id>",
     shippoApiVersion: "2018-02-08",
     carrierAccountBase: new CarrierAccountBase() {
         AccountId = "****",
@@ -254,7 +254,7 @@ var sdk = new ShippoSDK(
 );
 
 InitiateOauth2SigninRequest req = new InitiateOauth2SigninRequest() {
-    CarrierAccountObjectId = "<value>",
+    CarrierAccountObjectId = "<id>",
     RedirectUri = "https://enlightened-mortise.com/",
 };
 

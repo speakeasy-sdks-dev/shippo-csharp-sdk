@@ -29,7 +29,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Rates.GetAsync(
-    rateId: "<value>",
+    rateId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -71,7 +71,7 @@ var sdk = new ShippoSDK(
 );
 
 ListShipmentRatesRequest req = new ListShipmentRatesRequest() {
-    ShipmentId = "<value>",
+    ShipmentId = "<id>",
 };
 
 var res = await sdk.Rates.ListShipmentRatesAsync(req);
@@ -119,7 +119,7 @@ var sdk = new ShippoSDK(
 );
 
 ListShipmentRatesByCurrencyCodeRequest req = new ListShipmentRatesByCurrencyCodeRequest() {
-    ShipmentId = "<value>",
+    ShipmentId = "<id>",
     CurrencyCode = "USD",
 };
 

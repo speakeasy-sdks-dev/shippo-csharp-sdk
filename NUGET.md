@@ -55,7 +55,7 @@ var sdk = new ShippoSDK(
 try
 {
     InitiateOauth2SigninRequest req = new InitiateOauth2SigninRequest() {
-        CarrierAccountObjectId = "<value>",
+        CarrierAccountObjectId = "<id>",
         RedirectUri = "https://enlightened-mortise.com/",
     };
 

@@ -131,7 +131,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Addresses.GetAsync(
-    addressId: "<value>",
+    addressId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -173,7 +173,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Addresses.ValidateAsync(
-    addressId: "<value>",
+    addressId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 

@@ -146,7 +146,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Manifests.GetAsync(
-    manifestId: "<value>",
+    manifestId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 

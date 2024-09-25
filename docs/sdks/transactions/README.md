@@ -122,7 +122,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Transactions.GetAsync(
-    transactionId: "<value>",
+    transactionId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 

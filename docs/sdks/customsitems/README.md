@@ -126,7 +126,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CustomsItems.GetAsync(
-    customsItemId: "<value>",
+    customsItemId: "<id>",
     page: 1,
     shippoApiVersion: "2018-02-08"
 );

@@ -127,7 +127,7 @@ var sdk = new ShippoSDK(
 );
 
 await sdk.UserParcelTemplates.DeleteAsync(
-    userParcelTemplateObjectId: "<value>",
+    userParcelTemplateObjectId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -166,7 +166,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.UserParcelTemplates.GetAsync(
-    userParcelTemplateObjectId: "<value>",
+    userParcelTemplateObjectId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -208,7 +208,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.UserParcelTemplates.UpdateAsync(
-    userParcelTemplateObjectId: "<value>",
+    userParcelTemplateObjectId: "<id>",
     shippoApiVersion: "2018-02-08",
     userParcelTemplateUpdateRequest: new UserParcelTemplateUpdateRequest() {
         DistanceUnit = Shippo.Models.Components.DistanceUnitEnum.In,

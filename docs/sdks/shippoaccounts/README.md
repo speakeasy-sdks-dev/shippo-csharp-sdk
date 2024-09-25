@@ -123,7 +123,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.ShippoAccounts.GetAsync(
-    shippoAccountId: "<value>",
+    shippoAccountId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -165,7 +165,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.ShippoAccounts.UpdateAsync(
-    shippoAccountId: "<value>",
+    shippoAccountId: "<id>",
     shippoApiVersion: "2018-02-08",
     shippoAccountUpdateRequest: new ShippoAccountUpdateRequest() {
         Email = "hippo@shippo.com",

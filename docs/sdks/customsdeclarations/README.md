@@ -173,7 +173,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CustomsDeclarations.GetAsync(
-    customsDeclarationId: "<value>",
+    customsDeclarationId: "<id>",
     page: 1,
     shippoApiVersion: "2018-02-08"
 );

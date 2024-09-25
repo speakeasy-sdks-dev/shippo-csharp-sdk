@@ -109,7 +109,7 @@ var sdk = new ShippoSDK(
     shippoApiVersion: "2018-02-08"
 );
 
-var res = await sdk.Webhooks.GetWebhookAsync(webhookId: "<value>");
+var res = await sdk.Webhooks.GetWebhookAsync(webhookId: "<id>");
 
 // handle response
 ```
@@ -148,7 +148,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.Webhooks.UpdateWebhookAsync(
-    webhookId: "<value>",
+    webhookId: "<id>",
     webhookUpdateRequest: new WebhookUpdateRequest() {
         Event = Shippo.Models.Components.WebhookEventTypeEnum.BatchCreated,
         Url = "https://example.com/shippo-webhook",
@@ -194,7 +194,7 @@ var sdk = new ShippoSDK(
     shippoApiVersion: "2018-02-08"
 );
 
-await sdk.Webhooks.DeleteWebhookAsync(webhookId: "<value>");
+await sdk.Webhooks.DeleteWebhookAsync(webhookId: "<id>");
 
 // handle response
 ```
