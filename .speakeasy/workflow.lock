@@ -1,4 +1,4 @@
-speakeasyVersion: 1.401.2
+speakeasyVersion: internal
 sources:
     openapi:
         sourceNamespace: openapi
