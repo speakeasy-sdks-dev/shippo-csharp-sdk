@@ -57,10 +57,9 @@ var res = await sdk.CarrierParcelTemplates.ListAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Get
 
@@ -99,6 +98,6 @@ var res = await sdk.CarrierParcelTemplates.GetAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |

@@ -54,10 +54,9 @@ var res = await sdk.ShippoAccounts.ListAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Create
 
@@ -101,10 +100,9 @@ var res = await sdk.ShippoAccounts.CreateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Get
 
@@ -123,7 +121,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.ShippoAccounts.GetAsync(
-    shippoAccountId: "<value>",
+    shippoAccountId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -143,10 +141,9 @@ var res = await sdk.ShippoAccounts.GetAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Update
 
@@ -165,7 +162,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.ShippoAccounts.UpdateAsync(
-    shippoAccountId: "<value>",
+    shippoAccountId: "<id>",
     shippoApiVersion: "2018-02-08",
     shippoAccountUpdateRequest: new ShippoAccountUpdateRequest() {
         Email = "hippo@shippo.com",
@@ -192,6 +189,6 @@ var res = await sdk.ShippoAccounts.UpdateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |

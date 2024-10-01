@@ -52,10 +52,9 @@ var res = await sdk.CustomsDeclarations.ListAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Create
 
@@ -151,10 +150,9 @@ var res = await sdk.CustomsDeclarations.CreateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Get
 
@@ -173,7 +171,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CustomsDeclarations.GetAsync(
-    customsDeclarationId: "<value>",
+    customsDeclarationId: "<id>",
     page: 1,
     shippoApiVersion: "2018-02-08"
 );
@@ -195,6 +193,6 @@ var res = await sdk.CustomsDeclarations.GetAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |

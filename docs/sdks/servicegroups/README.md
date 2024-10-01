@@ -47,10 +47,9 @@ var res = await sdk.ServiceGroups.ListAsync(shippoApiVersion: "2018-02-08");
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Create
 
@@ -105,10 +104,9 @@ var res = await sdk.ServiceGroups.CreateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Update
 
@@ -165,10 +163,9 @@ var res = await sdk.ServiceGroups.UpdateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Delete
 
@@ -187,7 +184,7 @@ var sdk = new ShippoSDK(
 );
 
 await sdk.ServiceGroups.DeleteAsync(
-    serviceGroupId: "<value>",
+    serviceGroupId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -203,6 +200,6 @@ await sdk.ServiceGroups.DeleteAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |

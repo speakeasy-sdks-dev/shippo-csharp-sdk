@@ -56,10 +56,9 @@ var res = await sdk.CarrierAccounts.ListAsync(req);
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Create
 
@@ -116,10 +115,9 @@ var res = await sdk.CarrierAccounts.CreateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Get
 
@@ -138,7 +136,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CarrierAccounts.GetAsync(
-    carrierAccountId: "<value>",
+    carrierAccountId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -158,10 +156,9 @@ var res = await sdk.CarrierAccounts.GetAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Update
 
@@ -181,7 +178,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.CarrierAccounts.UpdateAsync(
-    carrierAccountId: "<value>",
+    carrierAccountId: "<id>",
     shippoApiVersion: "2018-02-08",
     carrierAccountBase: new CarrierAccountBase() {
         AccountId = "****",
@@ -232,10 +229,9 @@ var res = await sdk.CarrierAccounts.UpdateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## InitiateOauth2Signin
 
@@ -254,7 +250,7 @@ var sdk = new ShippoSDK(
 );
 
 InitiateOauth2SigninRequest req = new InitiateOauth2SigninRequest() {
-    CarrierAccountObjectId = "<value>",
+    CarrierAccountObjectId = "<id>",
     RedirectUri = "https://enlightened-mortise.com/",
 };
 
@@ -275,13 +271,12 @@ var res = await sdk.CarrierAccounts.InitiateOauth2SigninAsync(req);
 
 ### Errors
 
-| Error Object                                                                 | Status Code                                                                  | Content Type                                                                 |
+| Error Type                                                                   | Status Code                                                                  | Content Type                                                                 |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Shippo.Models.Errors.InitiateOauth2SigninResponseBody                        | 400                                                                          | application/json                                                             |
 | Shippo.Models.Errors.InitiateOauth2SigninCarrierAccountsResponseBody         | 401                                                                          | application/json                                                             |
 | Shippo.Models.Errors.InitiateOauth2SigninCarrierAccountsResponseResponseBody | 404                                                                          | application/json                                                             |
-| Shippo.Models.Errors.SDKException                                            | 4xx-5xx                                                                      | */*                                                                          |
-
+| Shippo.Models.Errors.SDKException                                            | 4XX, 5XX                                                                     | \*/\*                                                                        |
 
 ## Register
 
@@ -325,10 +320,9 @@ var res = await sdk.CarrierAccounts.RegisterAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## GetRegistrationStatus
 
@@ -367,6 +361,6 @@ var res = await sdk.CarrierAccounts.GetRegistrationStatusAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |

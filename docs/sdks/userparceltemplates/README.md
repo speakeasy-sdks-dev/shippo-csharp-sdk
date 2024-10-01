@@ -52,10 +52,9 @@ var res = await sdk.UserParcelTemplates.ListAsync(shippoApiVersion: "2018-02-08"
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Create
 
@@ -105,10 +104,9 @@ var res = await sdk.UserParcelTemplates.CreateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Delete
 
@@ -127,7 +125,7 @@ var sdk = new ShippoSDK(
 );
 
 await sdk.UserParcelTemplates.DeleteAsync(
-    userParcelTemplateObjectId: "<value>",
+    userParcelTemplateObjectId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -143,10 +141,9 @@ await sdk.UserParcelTemplates.DeleteAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Get
 
@@ -166,7 +163,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.UserParcelTemplates.GetAsync(
-    userParcelTemplateObjectId: "<value>",
+    userParcelTemplateObjectId: "<id>",
     shippoApiVersion: "2018-02-08"
 );
 
@@ -186,10 +183,9 @@ var res = await sdk.UserParcelTemplates.GetAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
-
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
 
 ## Update
 
@@ -208,7 +204,7 @@ var sdk = new ShippoSDK(
 );
 
 var res = await sdk.UserParcelTemplates.UpdateAsync(
-    userParcelTemplateObjectId: "<value>",
+    userParcelTemplateObjectId: "<id>",
     shippoApiVersion: "2018-02-08",
     userParcelTemplateUpdateRequest: new UserParcelTemplateUpdateRequest() {
         DistanceUnit = Shippo.Models.Components.DistanceUnitEnum.In,
@@ -238,6 +234,6 @@ var res = await sdk.UserParcelTemplates.UpdateAsync(
 
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
+| Error Type                        | Status Code                       | Content Type                      |
 | --------------------------------- | --------------------------------- | --------------------------------- |
-| Shippo.Models.Errors.SDKException | 4xx-5xx                           | */*                               |
+| Shippo.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*                             |
